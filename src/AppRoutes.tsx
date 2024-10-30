@@ -44,7 +44,11 @@ const AppRoutes: React.FC = () => {
       <Route
         path="/"
         element={
-          userState.user ? <Characters /> : <Navigate to="/login" replace />
+          userState.user ? (
+            <Navigate to="/characters" replace />
+          ) : (
+            <Navigate to="/login" replace />
+          )
         }
       />
       <Route
