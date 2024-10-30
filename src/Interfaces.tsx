@@ -28,7 +28,7 @@ export interface CharacterBoxProps {
 }
 
 export interface State {
-  user: string | null;
+  data: string | null;
 }
 
 export interface ApiResponse {

@@ -74,13 +74,36 @@ const EntityWrapper: React.FC<EntityWrapperProps> = ({ target }) => {
   return (
     <Box sx={{ maxWidth: 600, margin: "30px auto", textAlign: "center" }}>
       <Typography variant="h4">{data?.name}</Typography>
-      <Typography variant="h6">Type: {data?.type}</Typography>
-      <Typography variant="h6">Dimension: {data?.dimension}</Typography>
+      {data?.type && (
+        <Typography variant="h6">
+          Type: <b>{data.type}</b>
+        </Typography>
+      )}
+      {data?.dimension && (
+        <Typography variant="h6">
+          Dimension: <b>{data.dimension}</b>
+        </Typography>
+      )}
+      {data?.air_date && (
+        <Typography variant="h6">
+          Air Date: <b>{data.air_date}</b>
+        </Typography>
+      )}
+      {data?.episode && (
+        <Typography variant="h6">
+          Episode: <b>{data.episode}</b>
+        </Typography>
+      )}
       <Typography variant="h5" sx={{ marginTop: 2 }}>
-        Residents:
+        {data?.air_date ? "Characters in this episode:" : "Residents:"}
       </Typography>
       <List
-        sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
+        sx={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          mt: 2,
+        }}
       >
         {listData.map((character) => (
           <ListItem

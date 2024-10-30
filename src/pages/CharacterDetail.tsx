@@ -48,13 +48,13 @@ const CharacterDetail: React.FC = () => {
             {character.name}
           </Typography>
           <Typography variant="subtitle1">
-            Status: {character.status}
+            Status: <b>{character.status}</b>
           </Typography>
           <Typography variant="subtitle1">
-            Species: {character.species}
+            Species: <b>{character.species}</b>
           </Typography>
           <Typography variant="subtitle1">
-            Gender: {character.gender}
+            Gender: <b>{character.gender}</b>
           </Typography>
           <Typography variant="subtitle1" sx={{ mb: 2 }}>
             Location:{" "}
@@ -63,17 +63,16 @@ const CharacterDetail: React.FC = () => {
               style={{
                 marginLeft: "4px",
                 color: "#1976d2",
-                textDecoration: "underline",
+                textDecoration: "none",
               }}
             >
-              {character.location.name}
+              <b>{character.location.name}</b>
             </Link>
           </Typography>
           <Typography
             variant="subtitle1"
             sx={{
               mb: 1,
-              fontWeight: 600,
             }}
           >
             Character appeared in episodes:

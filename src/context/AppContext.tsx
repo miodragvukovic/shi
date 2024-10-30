@@ -2,10 +2,10 @@ import React, { createContext, useContext, useReducer } from "react";
 import { State } from "../Interfaces";
 
 const initialState: State = {
-  user: null,
+  data: null,
 };
 
-type Action = { type: "SET_USER"; payload: string | null };
+type Action = { type: "SET_STATE"; payload: string | null };
 
 const AppContext = createContext<{
   state: State;
@@ -16,12 +16,7 @@ const AppContext = createContext<{
 });
 
 const reducer = (state: State, action: Action): State => {
-  switch (action.type) {
-    case "SET_USER":
-      return { ...state, user: action.payload };
-    default:
-      return state;
-  }
+  return state;
 };
 
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({
