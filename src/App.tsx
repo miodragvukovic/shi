@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router } from "react-router-dom";
+import "./App.css";
+import AppRoutes from "./AppRoutes";
+import { Box } from "@mui/material";
+import Header from "./components/Header";
+import { useUser } from "./context/UserContext";
 
-function App() {
+const App = () => {
+  const { userState } = useUser();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box
+      sx={{
+        minHeight: "100vh",
+        padding: "0",
+      }}
+    >
+      <Router>
+        {userState.user && <Header />}
+        <AppRoutes />
+      </Router>
+    </Box>
   );
-}
+};
 
 export default App;
